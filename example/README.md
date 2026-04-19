@@ -30,3 +30,16 @@ sudo apt install texlive-latex-extra texlive-fonts-recommended texlive-lang-engl
 > **Tip:** If you ever run into a "package not found" error during compilation,
 just install `texlive-full` and move on — life's too short to hunt packages
 manually.
+
+## 2. Verifying the Installation
+ 
+After installing, check that the main compilers are available:
+ 
+```bash
+pdflatex --version
+xelatex --version
+lualatex --version
+```
+ 
+All three should print version info. If any of them is missing, your installation is likely incomplete.
+ 
