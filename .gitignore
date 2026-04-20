@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Allow directories to be traversed
+!*/
+
+# Keep only these files
+!*.tex
+!*.cls
+!.gitignore
+!README.md
