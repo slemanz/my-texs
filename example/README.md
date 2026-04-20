@@ -102,3 +102,37 @@ Or use a single wildcard pass for everything that's not the source or output:
 rm -f example.aux example.log example.toc example.out
 ```
  
+## 6. Using `latexmk` (the smart way)
+ 
+`latexmk` is a build tool that automatically handles how many times to run the compiler, bibliography steps, and cleanup. It's the no-brainer option once you're past the basics.
+ 
+Install it:
+ 
+```bash
+sudo apt install latexmk
+```
+ 
+Compile your document:
+ 
+```bash
+latexmk -pdf example.tex
+```
+ 
+Clean up generated files:
+ 
+```bash
+latexmk -c        # removes aux files, keeps the PDF
+latexmk -C        # removes everything including the PDF
+```
+ 
+> `latexmk` is especially handy for documents with complex cross-references or bibliographies — it just figures out the right number of passes for you.
+ 
+## 7. Viewing the Output
+ 
+Open the generated PDF from the terminal:
+ 
+```bash
+evince example.pdf        # GNOME default viewer
+okular example.pdf        # KDE viewer
+xdg-open example.pdf      # Uses your system's default app
+```
