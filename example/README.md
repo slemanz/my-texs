@@ -136,3 +136,14 @@ evince example.pdf        # GNOME default viewer
 okular example.pdf        # KDE viewer
 xdg-open example.pdf      # Uses your system's default app
 ```
+
+## Quick Reference
+ 
+| Task | Command |
+|---|---|
+| Compile to PDF | `pdflatex example.tex` |
+| Compile with bibliography | `pdflatex → bibtex → pdflatex → pdflatex` |
+| Smart compile (auto) | `latexmk -pdf example.tex` |
+| Clean aux files | `latexmk -c` |
+| Clean everything | `latexmk -C` |
+| Open PDF | `xdg-open example.pdf` |
