@@ -73,3 +73,32 @@ lualatex example.tex
 ```
  
 > For most documents, `pdflatex` is perfectly fine. Switch to `xelatex` or `lualatex` only if you need system fonts or advanced features.
+
+## 4. Compiling with Bibliography (BibTeX / Biber)
+ 
+If your document has a bibliography, the workflow is a bit longer:
+ 
+```bash
+pdflatex example.tex
+bibtex example        # or: biber example
+pdflatex example.tex
+pdflatex example.tex
+```
+ 
+The extra passes let LaTeX resolve all citations and references properly.
+ 
+## 5. Cleaning Up Auxiliary Files
+ 
+After compilation, LaTeX leaves a bunch of helper files around (`.aux`, `.log`,
+`.toc`, etc.). They're harmless, but if you want a clean folder:
+ 
+```bash
+rm -f *.aux *.log *.toc *.out *.synctex.gz *.fls *.fdb_latexmk
+```
+ 
+Or use a single wildcard pass for everything that's not the source or output:
+ 
+```bash
+rm -f example.aux example.log example.toc example.out
+```
+ 
