@@ -43,3 +43,33 @@ lualatex --version
  
 All three should print version info. If any of them is missing, your installation is likely incomplete.
  
+ ## 3. Compiling a `.tex` File
+ 
+### Using `pdflatex` (most common)
+ 
+Navigate to the folder containing your `.tex` file and run:
+ 
+```bash
+pdflatex example.tex
+```
+ 
+This generates `example.pdf` in the same directory. Run it **twice** if you have a table of contents, cross-references, or citations — LaTeX needs two passes to resolve them correctly.
+ 
+```bash
+pdflatex example.tex
+pdflatex example.tex
+```
+ 
+### Using `xelatex` (better for custom fonts / Unicode)
+ 
+```bash
+xelatex example.tex
+```
+ 
+### Using `lualatex` (modern engine, great for advanced typography)
+ 
+```bash
+lualatex example.tex
+```
+ 
+> For most documents, `pdflatex` is perfectly fine. Switch to `xelatex` or `lualatex` only if you need system fonts or advanced features.

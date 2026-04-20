@@ -1,0 +1,169 @@
+\documentclass[12pt, a4paper]{article}
+
+% --------------------------
+% Encoding & Language
+% --------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% --------------------------
+% Page Layout
+% --------------------------
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  left=3cm,
+  right=2.5cm
+]{geometry}
+
+% --------------------------
+% Typography
+% --------------------------
+\usepackage{microtype}        % Better text justification
+\usepackage{setspace}         % Line spacing control
+\onehalfspacing               % 1.5x line spacing
+
+% --------------------------
+% Math
+% --------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --------------------------
+% Graphics & Colors
+% --------------------------
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% --------------------------
+% Hyperlinks (keep as last package)
+% --------------------------
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+]{hyperref}
+
+% --------------------------
+% Document Metadata
+% --------------------------
+\title{Generic \LaTeX\ Document}
+\author{Your Name}
+\date{\today}
+
+% ==========================
+% BEGIN DOCUMENT
+% ==========================
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% --------------------------
+\section{Introduction}
+% --------------------------
+
+This is a generic \LaTeX\ template. Feel free to adapt it to your needs — 
+whether you're writing a report, an article, or just experimenting with 
+formatting.
+
+You can write normal paragraphs by just typing text. A blank line between
+paragraphs starts a new one.
+
+% --------------------------
+\section{Text Formatting}
+% --------------------------
+
+Here are some common text styles:
+
+\begin{itemize}
+  \item \textbf{Bold text} with \texttt{\textbackslash textbf\{\}}
+  \item \textit{Italic text} with \texttt{\textbackslash textit\{\}}
+  \item \underline{Underlined text} with \texttt{\textbackslash underline\{\}}
+  \item \texttt{Monospaced text} with \texttt{\textbackslash texttt\{\}}
+\end{itemize}
+
+% --------------------------
+\section{Math}
+% --------------------------
+
+Inline math uses dollar signs: $E = mc^2$.
+
+Display math uses the \texttt{equation} environment:
+
+\begin{equation}
+  \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+\end{equation}
+
+Or use \texttt{align} for multiple equations:
+
+\begin{align}
+  f(x) &= x^2 + 3x + 2 \\
+       &= (x+1)(x+2)
+\end{align}
+
+% --------------------------
+\section{Lists}
+% --------------------------
+
+Unordered list:
+\begin{itemize}
+  \item First item
+  \item Second item
+  \item Third item
+\end{itemize}
+
+Ordered list:
+\begin{enumerate}
+  \item Step one
+  \item Step two
+  \item Step three
+\end{enumerate}
+
+% --------------------------
+\section{Tables}
+% --------------------------
+
+\begin{table}[h!]
+  \centering
+  \caption{A simple example table}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Column A} & \textbf{Column B} & \textbf{Column C} \\
+    \hline
+    Value 1 & Value 2 & Value 3 \\
+    Value 4 & Value 5 & Value 6 \\
+    \hline
+  \end{tabular}
+  \label{tab:example}
+\end{table}
+
+% --------------------------
+\section{Including Figures}
+% --------------------------
+
+To include an image, place the file (e.g., \texttt{my-image.png}) in the 
+same folder and use:
+
+\begin{verbatim}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{my-image}
+  \caption{Your caption here}
+  \label{fig:example}
+\end{figure}
+\end{verbatim}
+
+% --------------------------
+\section{Cross-References}
+% --------------------------
+
+You can reference any labeled element, like Table~\ref{tab:example},
+using \texttt{\textbackslash ref\{\}} and \texttt{\textbackslash label\{\}}.
+Hyperlinks work too: \href{https://www.latex-project.org}{LaTeX Project website}.
+
+% ==========================
+\end{document}
