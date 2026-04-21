@@ -1,0 +1,146 @@
+\documentclass{relprog}
+
+% ─── Metadados do relatório ────────────────────────────────────────────────────
+\consultoria{Nome da Consultoria}
+\logoConsultoria{logo.png}
+\documentoId{REL-PROG-001}
+\tituloRelatorio{Relatório de Progresso}
+\projetoNome{[Nome do Projeto]}
+\clienteNome{[Nome do Cliente]}
+\responsavel{[Engenheiro Responsável]}
+\revisao{Rev A}
+\periodo{[dd/mm/aaaa] a [dd/mm/aaaa]}
+\faseAtual{[Nome da Fase]}
+
+% ─── Assinaturas ───────────────────────────────────────────────────────────────
+\assinaturaResponsavel{[Nome do Responsável]}{[Cargo]}
+\assinaturaCliente{[Nome do Representante do Cliente]}{[Cargo] \textbar\ [Empresa do Cliente]}
+
+\begin{document}
+
+\fazerCapa
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  RESUMO EXECUTIVO
+%% ════════════════════════════════════════════════════════════════
+\begin{resumobox}
+O projeto encontra-se \textbf{[no prazo / com atraso de X dias / adiantado]}.
+As principais atividades do período foram \textbf{[descrever em 1 frase]}.
+O risco mais relevante no momento é \textbf{[descrever ou escrever ``nenhum identificado'']}.
+Há \textbf{[N decisões / nenhuma decisão]} pendente por parte do cliente.
+\end{resumobox}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  1. STATUS POR ÁREA
+%% ════════════════════════════════════════════════════════════════
+\section{1. Status por Área}
+
+\begin{tabularx}{\linewidth}{@{} l c X @{}}
+  \cabStatusArea
+  Hardware — Esquemático  & \verde    & Revisão 2 concluída. Aguarda aprovação para layout. \\[3pt]
+  Hardware — PCB Layout   & \amarelo  & Em andamento. Roteamento 60\% concluído. \\[3pt]
+  Firmware — Drivers BSP  & \verde    & Drivers de SPI, I2C e UART validados em bancada. \\[3pt]
+  Firmware — Aplicação    & \amarelo  & Módulo de comunicação em desenvolvimento. \\[3pt]
+  Testes \& Validação     & \vermelho & Aguarda protótipo físico para iniciar. \\[3pt]
+  Compras / Componentes   & \verde    & BOM aprovada. Pedido realizado em [data]. \\
+  \bottomrule
+\end{tabularx}
+
+\legendaSemaforo
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  2. ATIVIDADES DO PERÍODO
+%% ════════════════════════════════════════════════════════════════
+\section{2. Atividades do Período}
+
+\subsection{Concluídas}
+
+\begin{listaItens}
+  \item \textbf{[Área]:} Descrição objetiva da atividade concluída.
+  \item \textbf{[Área]:} Descrição objetiva da atividade concluída.
+  \item \textbf{[Área]:} Descrição objetiva da atividade concluída.
+\end{listaItens}
+
+\subsection{Em Andamento}
+
+\begin{listaItens}
+  \item \textbf{[Área]:} Descrição da atividade em andamento. Previsão: \textbf{[data]}.
+  \item \textbf{[Área]:} Descrição da atividade em andamento. Previsão: \textbf{[data]}.
+\end{listaItens}
+
+\subsection{Não Iniciadas / Atrasadas}
+
+\begin{listaItens}
+  \item \textbf{[Área]:} Descrição. Motivo do atraso: \textbf{[justificativa]}. Nova previsão: \textbf{[data]}.
+\end{listaItens}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  3. PROGRESSO DO CRONOGRAMA
+%% ════════════════════════════════════════════════════════════════
+\section{3. Progresso do Cronograma}
+
+\begin{tabularx}{\linewidth}{@{} l l l c X @{}}
+  \cabCronograma
+  Aprovação de Requisitos  & 05/05/2025 & 05/05/2025 & 100\% & Concluído conforme planejado. \\[3pt]
+  Esquemático Rev A        & 20/05/2025 & 22/05/2025 &  90\% & 2 dias de atraso por revisão de requisitos. \\[3pt]
+  PCB Layout               & 10/06/2025 & 10/06/2025 &  60\% & Em andamento. \\[3pt]
+  Firmware v0.1            & 15/06/2025 & 15/06/2025 &  40\% & Em andamento. \\[3pt]
+  Protótipo Físico         & 30/06/2025 & 30/06/2025 &   0\% & Aguarda PCB. \\[3pt]
+  Testes \& Validação      & 20/07/2025 & 20/07/2025 &   0\% & Aguarda protótipo. \\[3pt]
+  Entrega Final            & 31/07/2025 & 31/07/2025 &   0\% & — \\
+  \bottomrule
+\end{tabularx}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  4. RISCOS E IMPEDIMENTOS
+%% ════════════════════════════════════════════════════════════════
+\section{4. Riscos e Impedimentos}
+
+\begin{tabularx}{\linewidth}{@{} l l l X X @{}}
+  \cabRiscos
+  R1 & Lead time de componentes & Alto    & Médio   & Pedido antecipado realizado. \\[3pt]
+  R2 & Mudança de requisitos    & Médio   & Baixo   & Change log formal em vigor. \\[3pt]
+  R3 & [Descrever risco]        & [Nível] & [Nível] & [Ação de mitigação]. \\
+  \bottomrule
+\end{tabularx}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  5. PRÓXIMOS PASSOS
+%% ════════════════════════════════════════════════════════════════
+\section{5. Próximos Passos}
+
+\subsection{Ações da Consultoria — próximo período}
+
+\begin{listaItens}
+  \item \textbf{[Área]:} Descrição da próxima atividade planejada. Prazo: \textbf{[data]}.
+  \item \textbf{[Área]:} Descrição da próxima atividade planejada. Prazo: \textbf{[data]}.
+  \item \textbf{[Área]:} Descrição da próxima atividade planejada. Prazo: \textbf{[data]}.
+\end{listaItens}
+
+\subsection{Pendências com o Cliente}
+
+\begin{tabularx}{\linewidth}{@{} c X l l @{}}
+  \cabPendencias
+  P1 & Aprovação do esquemático Rev B para liberar PCB.    & \today & [data] \\[3pt]
+  P2 & Confirmação de requisito de consumo em sleep mode.  & \today & [data] \\[3pt]
+  P3 & [Descrever pendência do cliente]                    & \today & [data] \\
+  \bottomrule
+\end{tabularx}
+
+\alertaPendencias
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  6. ASSINATURAS
+%% ════════════════════════════════════════════════════════════════
+\section{6. Emissão e Aprovação}
+
+\fazerAssinaturas
+
+\end{document}
