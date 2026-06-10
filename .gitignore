@@ -9,5 +9,6 @@
 !*.cls
 !.gitignore
 !README.md
+!Makefile
 
 !*.png
