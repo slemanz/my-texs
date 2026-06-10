@@ -1,0 +1,229 @@
+\documentclass{anafw}
+
+% ─── Metadados do documento ────────────────────────────────────────────────────
+\consultoria{Nome da Consultoria}
+\logoConsultoria{logo.png}
+\documentoId{ANA-FW-001}
+\tituloAnalise{Análise de Firmware}
+\subtituloAnalise{[Nome do produto / subsistema analisado]}
+\projetoNome{[Nome do Projeto]}
+\clienteNome{[Nome do Cliente]}
+\responsavel{[Engenheiro Responsável]}
+\revisao{Rev A}
+\plataforma{[MCU / Framework — ex.: ESP32 / Arduino]}
+\firmwareAnalisado{[Versão / commit analisado]}
+\repositorio{[Repositório / caminho]}
+
+% ─── Assinaturas ───────────────────────────────────────────────────────────────
+\assinaturaResponsavel{[Nome do Responsável]}{[Cargo]}
+\assinaturaCliente{[Nome do Representante do Cliente]}{[Cargo] \textbar\ [Empresa do Cliente]}
+
+\begin{document}
+
+\fazerCapa
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  RESUMO EXECUTIVO
+%% ════════════════════════════════════════════════════════════════
+\begin{resumobox}
+O firmware analisado \textbf{[cumpre / cumpre parcialmente]} sua função atual de
+\textbf{[descrever em 1 frase o que o dispositivo faz]}.
+Foram identificados \textbf{[N]} pontos de melhoria, sendo \textbf{[N]} críticos
+(corrigem bugs ou riscos reais), sem alterar o comportamento desejado do produto.
+A evolução proposta de maior valor é \textbf{[descrever]}.
+\end{resumobox}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  1. VISÃO GERAL DO SISTEMA
+%% ════════════════════════════════════════════════════════════════
+\section{1. Visão Geral do Sistema}
+
+\textbf{[Descrever em 1--2 parágrafos o propósito do dispositivo: o que controla,
+quais atuadores e sensores possui, e como o usuário interage com ele.]}
+
+\subsection{Periféricos e pinos}
+
+\begin{listaItens}
+  \item \textbf{[Atuador 1]:} [função no sistema].
+  \item \textbf{[Sensor / entrada]:} [função no sistema].
+  \item \textbf{[Indicador / saída]:} [função no sistema].
+  \item \textbf{[Interface de comando — ex.: RF, botão, UART]:} [função no sistema].
+\end{listaItens}
+
+\subsection{Arquivos / módulos}
+
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \cabArquivos
+  \texttt{[main.\,c/.ino]} & Ponto de entrada: \texttt{setup()} e \texttt{loop()}. \\[3pt]
+  \texttt{[modulo\_a.h]}   & [Responsabilidade do módulo]. \\[3pt]
+  \texttt{[modulo\_b.h]}   & [Responsabilidade do módulo]. \\[3pt]
+  \texttt{[config.h]}      & [Constantes, pinos e parâmetros]. \\
+  \bottomrule
+\end{tabularx}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  2. O QUE O FIRMWARE FAZ HOJE
+%% ════════════════════════════════════════════════════════════════
+\section{2. O que o Firmware Faz Hoje}
+
+\subsection{Inicialização — \texttt{setup()}}
+
+\begin{listaItens}
+  \item {[Passo de inicialização, ex.: configura Serial / pinos / periféricos]}.
+  \item {[Passo de inicialização]}.
+\end{listaItens}
+
+\subsection{Laço principal — \texttt{loop()}}
+
+\begin{listaItens}
+  \item {[Ação executada a cada iteração]}.
+  \item {[Tratamento de evento / comando recebido e o que ele dispara]}.
+\end{listaItens}
+
+\subsection{Estados internos}
+
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \toprule
+  \rowcolor{primario}
+  \textcolor{white}{\textbf{Estado}} & \textcolor{white}{\textbf{Significado}} \\
+  \midrule
+  \texttt{[ESTADO\_A]} & [Descrição]. \\[3pt]
+  \texttt{[ESTADO\_B]} & [Descrição]. \\
+  \bottomrule
+\end{tabularx}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  3. DIAGRAMA DO FLUXO ATUAL
+%% ════════════════════════════════════════════════════════════════
+\section{3. Diagrama do Fluxo Atual}
+
+\begin{codigo}
+            +----------- loop() -----------+
+            | le entradas / eventos        |
+            | comando disponivel?          |
+            +--------------+---------------+
+                           | sim
+              +------------+------------+
+              |            |            |
+          [comando A]  [comando B]  [comando C]
+              |            |            |
+          [acao A]     [acao B]     (reservado)
+\end{codigo}
+
+\noindent\textbf{[Observação:]} [apontar, se for o caso, que o fluxo é bloqueante,
+que eventos são ignorados durante operações longas, etc.]
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  4. PONTOS DE MELHORIA
+%% ════════════════════════════════════════════════════════════════
+\section{4. Pontos de Melhoria}
+
+Ordenados por impacto. Nenhum item desta seção altera o comportamento desejado do
+produto --- apenas corrigem defeitos ou melhoram a qualidade do código.
+
+\subsection{\nivelCritico\ Corrigem bugs ou riscos reais}
+
+\begin{listaItens}
+  \item \textbf{[Título do problema].} [Descrição do defeito e por que é crítico.]
+        \\ \textit{Ação:} [correção recomendada].
+  \item \textbf{[Título do problema].} [Descrição.]
+        \\ \textit{Ação:} [correção recomendada].
+\end{listaItens}
+
+\subsection{\nivelEstrutural\ Legibilidade e manutenção}
+
+\begin{listaItens}
+  \item \textbf{[Título].} [Ex.: números mágicos, nomes enganosos, falta de \texttt{enum},
+        ausência de \texttt{include guards}.] \\ \textit{Ação:} [recomendação].
+  \item \textbf{[Título].} [Descrição.] \\ \textit{Ação:} [recomendação].
+\end{listaItens}
+
+\subsection{\nivelRobustez\ Resiliência}
+
+\begin{listaItens}
+  \item \textbf{[Título].} [Ex.: código bloqueante, ausência de debounce / timeout / watchdog.]
+        \\ \textit{Ação:} [recomendação].
+\end{listaItens}
+
+\subsection{Resumo priorizado}
+
+\begin{tabularx}{\linewidth}{@{} c X c c @{}}
+  \cabMelhorias
+  1 & [Ponto de melhoria]                    & \nivelCritico    & \esfBaixo \\[3pt]
+  2 & [Ponto de melhoria]                    & \nivelCritico    & \esfBaixo \\[3pt]
+  3 & [Ponto de melhoria]                    & \nivelEstrutural & \esfMedio \\[3pt]
+  4 & [Ponto de melhoria]                    & \nivelEstrutural & \esfBaixo \\[3pt]
+  5 & [Ponto de melhoria]                    & \nivelRobustez   & \esfAlto  \\
+  \bottomrule
+\end{tabularx}
+
+\legendaCriticidade
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  5. PLANO DE IMPLEMENTAÇÃO POR ETAPAS
+%% ════════════════════════════════════════════════════════════════
+\section{5. Plano de Implementação por Etapas}
+
+\begin{tabularx}{\linewidth}{@{} l X X l @{}}
+  \cabEtapas
+  Etapa 1 & Refactor seguro (mesmo comportamento) & Itens críticos e estruturais  & ---       \\[3pt]
+  Etapa 2 & Correções de hardware / pinos         & [Itens]                       & Etapa 1   \\[3pt]
+  Etapa 3 & [Nova funcionalidade — núcleo]        & [Itens]                       & Etapa 1   \\[3pt]
+  Etapa 4 & [Robustez — máquina de estados]       & [Itens]                       & Etapas 1--3 \\
+  \bottomrule
+\end{tabularx}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  6. EVOLUÇÃO PROPOSTA (DESCRIÇÃO)
+%% ════════════════════════════════════════════════════════════════
+\section{6. Evolução Proposta}
+
+\subsection{Requisito}
+
+\textbf{[Descrever a nova funcionalidade desejada, do ponto de vista do usuário /
+instalador. O que muda em relação ao comportamento atual.]}
+
+\begin{premissabox}
+[Apontar a premissa que precisa de confirmação do cliente e como ela muda a
+modelagem. Ex.: definição exata de um ``par'', limites de capacidade, etc.]
+\end{premissabox}
+
+\subsection{Abordagem recomendada}
+
+\begin{listaItens}
+  \item \textbf{Persistência:} [ex.: usar \texttt{Preferences}/NVS no ESP32 em vez de emular EEPROM].
+  \item \textbf{Modelo de dados:} [estrutura e capacidade].
+  \item \textbf{Máquina de estados:} [estados do novo fluxo e gatilhos].
+  \item \textbf{Feedback ao usuário / timeout / migração:} [como sinalizar e como não quebrar instalações existentes].
+\end{listaItens}
+
+\subsection{Esboço de modelo de dados}
+
+\begin{codigo}[language=C]
+#define MAX_ITENS 2
+
+typedef struct {
+    bool     valido;     // slot gravado?
+    uint32_t cod_a;      // [funcao principal]
+    uint32_t cod_b;      // [funcao secundaria]
+} item_t;
+
+item_t itens[MAX_ITENS];
+\end{codigo}
+
+
+%% ════════════════════════════════════════════════════════════════
+%%  7. ASSINATURAS
+%% ════════════════════════════════════════════════════════════════
+\section{7. Emissão e Aprovação}
+
+\fazerAssinaturas
+
+\end{document}
